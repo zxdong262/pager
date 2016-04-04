@@ -1,0 +1,37 @@
+{
+  "name": "zpager",
+  "description": "a nodejs module render pagination html",
+  "version": "1.0.0",
+  "keywords": [
+    "pagenav"
+  ],
+  "main": "index.js",
+  "homepage": "https://github.com/zxdong262/pager",
+  "bugs": "https://github.com/zxdong262/pager/issues",
+  "author": {
+    "email": "zxdong@gmail.com",
+    "name": "ZHAO Xudong",
+    "url": "http://html5beta.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zxdong262/pager"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/zxdong262/pager/blob/master/LICENSE"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "2.4.5"
+    ,"cheerio": "*"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
