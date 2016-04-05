@@ -1,4 +1,6 @@
 # zpager
+[![Build Status](https://travis-ci.org/zxdong262/pager.svg?branch=master)](https://travis-ci.org/zxdong262/pager)
+
 a nodejs module render pagination html
 
 ## install
