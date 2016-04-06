@@ -19,6 +19,7 @@ var html = pager.render({
   ,pageSize: 10
   ,total: 503
   ,maxLink: 5
+  ,url: 'http://io.js'
 })
 
 /* 
@@ -27,21 +28,21 @@ var html = pager.render({
 <nav class="zpagenav" >
           <span class="pagination page-link m-r-1">total:100</span> 
           <ul class="pagination"><li class="page-item disabled">
-                <span class="page-link" href="?p=1" aria-label="Previous"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></span>
+                <span class="page-link" href="http://io.js?p=1" aria-label="Previous"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></span>
               </li><li class="page-item active">
-                <a class="page-link" href="?p=1" aria-label="1"><span>1</span></a>
+                <a class="page-link" href="http://io.js?p=1" aria-label="1"><span>1</span></a>
               </li><li class="page-item ">
-                <a class="page-link" href="?p=2" aria-label="2"><span>2</span></a>
+                <a class="page-link" href="http://io.js?p=2" aria-label="2"><span>2</span></a>
               </li><li class="page-item ">
-                <a class="page-link" href="?p=3" aria-label="3"><span>3</span></a>
+                <a class="page-link" href="http://io.js?p=3" aria-label="3"><span>3</span></a>
               </li><li class="page-item ">
-                <a class="page-link" href="?p=4" aria-label="4"><span>4</span></a>
+                <a class="page-link" href="http://io.js?p=4" aria-label="4"><span>4</span></a>
               </li><li class="page-item disabled">
-                <span class="page-link" href="?p=1" aria-label="..."><span>...</span></span>
+                <span class="page-link" href="http://io.js?p=1" aria-label="..."><span>...</span></span>
               </li><li class="page-item ">
-                <a class="page-link" href="?p=10" aria-label="10"><span>10</span></a>
+                <a class="page-link" href="http://io.js?p=10" aria-label="10"><span>10</span></a>
               </li><li class="page-item ">
-                <a class="page-link" href="?p=2" aria-label="Next"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a>
+                <a class="page-link" href="http://io.js?p=2" aria-label="Next"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a>
               </li></ul>
         </nav>
 
@@ -80,7 +81,7 @@ let option = {
 
             data.units.map(function(unit, index) {
               return `<li class="page-item ${unit.class}">
-                <` + (unit.isDisabled?'span':'a') + ` class="page-link" href="?p=${unit.page}" aria-label="${unit.ariaLabel}">` +
+                <` + (unit.isDisabled?'span':'a') + ` class="page-link" href="http://io.js?p=${unit.page}" aria-label="${unit.ariaLabel}">` +
                   (unit.isPager?`<span aria-hidden="true">${unit.html}</span>`:
                                 `<span>${unit.html}</span>`) +
                   (unit.isPager?`<span class="sr-only">${unit.srHtml}</span>`:'') +
@@ -100,6 +101,7 @@ var html = pager.render({
   ,pageSize: 10
   ,total: 503
   ,maxLink: 5
+  ,url: 'http://io.js'
 })
 
 ```

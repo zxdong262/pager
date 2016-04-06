@@ -100,6 +100,21 @@ describe('pager', function () {
 
 		})
 
+		it('init url=xxx', function() {
+			var pager = new Pager()
+			var html = pager.render({
+				page: 1
+				,pageSize: 10
+				,total: 503
+				,maxLink: 5
+				,url: 'xxx'
+			})
+			var $ = cheerio.load(html)
+			assert($('.page-item').length === 8)
+			assert(html.indexOf('xxx') > -1)
+
+		})
+
 	})
 
 

@@ -34,7 +34,7 @@ class Pager {
 
 						data.units.map(function(unit, index) {
 							return `<li class="page-item ${unit.class}">
-								<` + (unit.isDisabled?'span':'a') + ` class="page-link" href="?p=${unit.page}" aria-label="${unit.ariaLabel}">` +
+								<` + (unit.isDisabled?'span':'a') + ` class="page-link" href="${data.url||''}?p=${unit.page}" aria-label="${unit.ariaLabel}">` +
 									(unit.isPager?`<span aria-hidden="true">${unit.html}</span>`:
 																`<span>${unit.html}</span>`) +
 									(unit.isPager?`<span class="sr-only">${unit.srHtml}</span>`:'') +
@@ -54,10 +54,11 @@ class Pager {
 	 * create data array for render html
 	 *
 	 * @param params {Object} params object
-	 * @param params.page {Number} page number
-	 * @param params.pageSize {Number} page size
-	 * @param params.total {Number} items number
-	 * @param params.maxLink {Number} max link number to show
+	 * @param params.page {Number} page number, default = 10
+	 * @param params.pageSize {Number} page size, default = 1
+	 * @param params.total {Number} items number, default = 0
+	 * @param params.maxLink {Number} max link number to show, must > 5
+	 * @param params.url {String} base url, default = ''
 	 * @return {Array}
 	 */
 
