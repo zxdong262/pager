@@ -1,7 +1,7 @@
 {
   "name": "zpager",
   "description": "a nodejs module render pagination html",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "keywords": [
     "pagenav"
   ],

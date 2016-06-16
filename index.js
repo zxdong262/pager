@@ -14,6 +14,7 @@ class Pager {
 	 * @param prevSrHtml {String} prev button html for screen reader
 	 * @param nextSrHtml {String} next button html for screen reader
 	 * @param dotsHtml {String} seprator button html
+	 * @param url {String} base url
 	 * @param template {Function} template function, return the output html
 	 */
 
@@ -28,13 +29,17 @@ class Pager {
 			,nextSrHtml: 'Next'
 			,dotsHtml: '...'
 			,template: function(data) {
+				var tag = data.url.indexOf('?') > -1?'&':'?'
 				return `<nav class="zpagenav" >
 					<span class="pagination page-link m-r-1">total:${data.total}</span> 
 					<ul class="pagination">` +
 
 						data.units.map(function(unit, index) {
+							var url = unit.page === 1?
+												data.url
+												:data.url + tag + 'page=' + unit.page
 							return `<li class="page-item ${unit.class}">
-								<` + (unit.isDisabled?'span':'a') + ` class="page-link" href="${data.url||''}?p=${unit.page}" aria-label="${unit.ariaLabel}">` +
+								<` + (unit.isDisabled?'span':'a') + ` class="page-link" href="${url}" aria-label="${unit.ariaLabel}">` +
 									(unit.isPager?`<span aria-hidden="true">${unit.html}</span>`:
 																`<span>${unit.html}</span>`) +
 									(unit.isPager?`<span class="sr-only">${unit.srHtml}</span>`:'') +
@@ -179,6 +184,7 @@ class Pager {
 	render(_params) {
 
 		let params = _params
+		params.url = params.url || ''
 		let units = this.createUnits(params)
 		params.units = units
 		return this.default.template(params)

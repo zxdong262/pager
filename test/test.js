@@ -23,6 +23,19 @@ describe('pager', function () {
 			assert($('.page-item').length === 8)
 		})
 
+		it('no p= for page 1', function() {
+			var pager = new Pager()
+			var html = pager.render({
+				page: 1
+				,pageSize: 10
+				,total: 100
+				,maxLink: 5
+			})
+			//console.log(html)
+			var $ = cheerio.load(html)
+			assert($('.page-item').eq(1).children('a').prop('href').indexOf('?') === -1)
+		})
+
 	})
 
 
@@ -111,7 +124,8 @@ describe('pager', function () {
 			})
 			var $ = cheerio.load(html)
 			assert($('.page-item').length === 8)
-			assert(html.indexOf('xxx') > -1)
+			console.log($('.page-item a').eq(0).prop('href'))
+			assert($('.page-item a').eq(0).prop('href').indexOf('xxx') > -1)
 
 		})
 
